@@ -3,7 +3,6 @@ import { cvData } from './data/cvData';
 import { HeaderBar } from './components/HeaderBar';
 import { Sidebar } from './components/Sidebar';
 import { ObjectiveSection } from './components/ObjectiveSection';
-import { TechSkillsSection } from './components/TechSkillsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { EducationSection } from './components/EducationSection';
 import { WorkshopsSection } from './components/WorkshopsSection';
@@ -97,11 +96,6 @@ export default function App() {
             <div className="p-6 md:p-8 space-y-10">
               
               <ObjectiveSection objective={cvData.objective} />
-
-              <TechSkillsSection
-                techSkills={cvData.techSkills}
-                searchQuery={searchQuery}
-              />
 
               <ExperienceSection
                 experiences={cvData.experiences}
