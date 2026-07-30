@@ -135,6 +135,10 @@ export default function App() {
 
       {/* Print Specific CSS override */}
       <style>{`
+        @page {
+          size: A3 portrait;
+          margin: 6mm;
+        }
         @media print {
           .no-print {
             display: none !important;
@@ -142,19 +146,21 @@ export default function App() {
           body {
             background: white !important;
             color: black !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
           }
           main {
             padding: 0 !important;
             max-width: 100% !important;
           }
-          .shadow-xl, .shadow-md, .shadow-sm {
+          #a3-cv-document {
             box-shadow: none !important;
+            border: none !important;
+            max-width: 100% !important;
+            width: 100% !important;
           }
-          .rounded-2xl, .rounded-xl, .rounded-lg {
-            border-radius: 0 !important;
-          }
-          .border {
-            border-color: #e2e8f0 !important;
+          .shadow-2xl, .shadow-xl, .shadow-md, .shadow-sm {
+            box-shadow: none !important;
           }
         }
       `}</style>
