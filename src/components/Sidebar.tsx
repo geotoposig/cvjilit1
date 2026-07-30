@@ -184,6 +184,45 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </ul>
       </div>
 
+      {/* Compétences et Connaissances Informatiques */}
+      {techSkills && techSkills.length > 0 && (
+        <div className="space-y-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-teal-400 border-b border-teal-500/30 pb-1.5 flex items-center gap-2">
+            <Cpu className="w-3.5 h-3.5" />
+            Compétences et Connaissances Informatiques
+          </h3>
+          <div className="space-y-2.5 text-xs text-slate-300">
+            {techSkills.map((sec, idx) => (
+              <div key={idx} className="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700/50">
+                <strong className="text-teal-300 text-[11px] block font-semibold mb-1">
+                  {sec.numberTitle}
+                </strong>
+                <ul className="space-y-1 text-[11px] text-slate-300 pl-1">
+                  {sec.bullets.map((b, bIdx) => {
+                    const split = b.split(/:(.+)/);
+                    return (
+                      <li key={bIdx} className="flex items-start gap-1.5 leading-relaxed">
+                        <span className="w-1 h-1 rounded-full bg-teal-400 shrink-0 mt-1.5" />
+                        <div>
+                          {split.length > 1 ? (
+                            <>
+                              <strong className="text-slate-200 font-medium">{split[0]}:</strong>
+                              <span>{split[1]}</span>
+                            </>
+                          ) : (
+                            <span>{b}</span>
+                          )}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
      
 
       {/* Centres d'intérêt */}
