@@ -83,6 +83,38 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
 
           <div>
             <h3 className="text-xs uppercase font-bold text-teal-400 border-b border-teal-500/40 pb-1 mb-3 tracking-wider">
+              Compétences et Connaissances Informatiques
+            </h3>
+            <div className="space-y-2 text-xs text-slate-200">
+              {techSkills.map((sec, i) => (
+                <div key={i} className="bg-slate-800/60 p-2 rounded border border-slate-700/50">
+                  <strong className="text-teal-300 text-[11px] block mb-1">
+                    {sec.numberTitle}
+                  </strong>
+                  <ul className="list-disc pl-4 space-y-0.5 text-[11px] text-slate-300">
+                    {sec.bullets.map((b, bi) => {
+                      const split = b.split(/:(.+)/);
+                      return (
+                        <li key={bi}>
+                          {split.length > 1 ? (
+                            <>
+                              <strong className="text-slate-100">{split[0]}:</strong>
+                              <span>{split[1]}</span>
+                            </>
+                          ) : (
+                            <span>{b}</span>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xs uppercase font-bold text-teal-400 border-b border-teal-500/40 pb-1 mb-3 tracking-wider">
               Centres d'intérêt
             </h3>
             <div className="flex flex-wrap gap-1 text-[11px] text-slate-300">

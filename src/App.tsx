@@ -89,6 +89,7 @@ export default function App() {
               languages={cvData.languages}
               softSkills={cvData.softSkills}
               interests={cvData.interests}
+              techSkills={cvData.techSkills}
               onCopyText={handleCopyText}
             />
 
