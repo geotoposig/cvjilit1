@@ -81,37 +81,6 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-xs uppercase font-bold text-teal-400 border-b border-teal-500/40 pb-1 mb-3 tracking-wider">
-              Compétences et Connaissances Informatiques
-            </h3>
-            <div className="space-y-2 text-xs text-slate-200">
-              {techSkills.map((sec, i) => (
-                <div key={i} className="bg-slate-800/60 p-2 rounded border border-slate-700/50">
-                  <strong className="text-teal-300 text-[11px] block mb-1">
-                    {sec.numberTitle}
-                  </strong>
-                  <ul className="list-disc pl-4 space-y-0.5 text-[11px] text-slate-300">
-                    {sec.bullets.map((b, bi) => {
-                      const split = b.split(/:(.+)/);
-                      return (
-                        <li key={bi}>
-                          {split.length > 1 ? (
-                            <>
-                              <strong className="text-slate-100">{split[0]}:</strong>
-                              <span>{split[1]}</span>
-                            </>
-                          ) : (
-                            <span>{b}</span>
-                          )}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
 
           <div>
             <h3 className="text-xs uppercase font-bold text-teal-400 border-b border-teal-500/40 pb-1 mb-3 tracking-wider">
@@ -141,38 +110,7 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
             </p>
           </section>
 
-          {/* Compétences Informatiques */}
-          <section>
-            <h2 className="text-base font-bold uppercase text-slate-900 dark:text-white border-b-2 border-teal-600 pb-1 mb-3">
-              Compétences et Connaissances Informatiques
-            </h2>
-            <div className="space-y-3 text-xs text-slate-600 dark:text-slate-300">
-              {techSkills.map((sec, i) => (
-                <div key={i}>
-                  <strong className="text-slate-900 dark:text-slate-100 block mb-1">
-                    {sec.numberTitle}
-                  </strong>
-                  <ul className="list-disc pl-5 space-y-1">
-                    {sec.bullets.map((b, bi) => {
-                      const split = b.split(/:(.+)/);
-                      return (
-                        <li key={bi}>
-                          {split.length > 1 ? (
-                            <>
-                              <strong className="text-slate-800 dark:text-slate-200">{split[0]}:</strong>
-                              <span>{split[1]}</span>
-                            </>
-                          ) : (
-                            <span>{b}</span>
-                          )}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
+          
 
           {/* Expériences */}
           <section>
