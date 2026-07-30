@@ -50,7 +50,7 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse" />
           <span className="text-xs font-semibold uppercase tracking-wider text-teal-300">
-            Affiche A3 Professionnelle (Prête à imprimer / Exporter en PDF)
+            Format A4 Professionnel (Prêt à imprimer / Exporter en PDF sans coupure)
           </span>
         </div>
         <button
@@ -58,14 +58,14 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
           className="flex items-center gap-2 px-4 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-lg text-xs font-bold transition shadow-md active:scale-95"
         >
           <Printer className="w-4 h-4" />
-          Imprimer / Télécharger en PDF (A3)
+          Imprimer / Télécharger en PDF (A4)
         </button>
       </div>
 
-      {/* Main A3 Document Wrapper with Sidebar */}
+      {/* Main A4 Document Wrapper with Sidebar */}
       <div 
         id="a3-cv-document" 
-        className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 max-w-[1250px] mx-auto shadow-2xl rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-12 min-h-[1400px]"
+        className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 max-w-[1250px] mx-auto shadow-2xl rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-12 min-h-[1200px]"
       >
         
         {/* LEFT SIDEBAR (4 Columns out of 12) */}
@@ -88,7 +88,7 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
                 {personalInfo.title}
               </p>
               <div className="mt-3 px-3 py-1 rounded-full bg-teal-950/80 text-teal-300 text-[10px] font-bold border border-teal-500/40 uppercase tracking-widest">
-                Curriculum Vitae - Format A3
+                Curriculum Vitae - Format A4
               </div>
             </div>
 
@@ -275,7 +275,7 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
           </div>
 
           <div className="text-center pt-6 border-t border-slate-800 text-[10px] text-slate-500">
-            Document format A3 • Portfolio & CV Officiel
+            Document format A4 • Portfolio & CV Officiel
           </div>
 
         </aside>
