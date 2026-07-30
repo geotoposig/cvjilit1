@@ -41,7 +41,6 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
   const sections = [
     { id: 'objective', label: 'Objectif' },
     { id: 'experience', label: 'Expériences' },
-    { id: 'web-sig', label: 'Projets Web-SIG' },
     { id: 'education', label: 'Formation' },
     { id: 'workshops', label: 'Formations & Ateliers' },
   ];

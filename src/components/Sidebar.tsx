@@ -1,5 +1,5 @@
 import React from 'react';
-import { PersonalInfo, LanguageItem, TechSkillSection } from '../types';
+import { PersonalInfo, LanguageItem, TechSkillSection, WebSigProject } from '../types';
 import { 
   Phone, 
   Mail, 
@@ -22,6 +22,7 @@ interface SidebarProps {
   softSkills: string[];
   interests: string[];
   techSkills?: TechSkillSection[];
+  webSigProjects?: WebSigProject[];
   onCopyText: (text: string, label: string) => void;
 }
 
@@ -32,6 +33,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   softSkills,
   interests,
   techSkills,
+  webSigProjects,
   onCopyText,
 }) => {
   return (
@@ -224,6 +226,37 @@ export const Sidebar: React.FC<SidebarProps> = ({
       )}
 
      
+
+      {/* Plateformes Web-SIG & Réalisations Digitales */}
+      {webSigProjects && webSigProjects.length > 0 && (
+        <div className="space-y-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-teal-400 border-b border-teal-500/30 pb-1.5 flex items-center gap-2">
+            <Globe className="w-3.5 h-3.5" />
+            Plateformes Web-SIG & Réalisations Digitales
+          </h3>
+          <div className="space-y-2.5">
+            {webSigProjects.map((p) => (
+              <div key={p.id} className="p-2.5 rounded-lg border border-slate-700/50 bg-slate-800/60">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-teal-600 text-white uppercase">{p.tag}</span>
+                  <a href={p.url} target="_blank" rel="noreferrer" className="text-[11px] text-teal-300 hover:underline flex items-center gap-1 font-semibold">
+                    {p.accessLabel} <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+                <h4 className="text-[11px] font-bold text-slate-100 mb-1">{p.title}</h4>
+                <ul className="space-y-1 text-[10px] text-slate-300">
+                  {p.bullets.map((b, bi) => (
+                    <li key={bi} className="flex items-start gap-1 leading-relaxed">
+                      <CheckCircle2 className="w-3 h-3 text-teal-400 shrink-0 mt-0.5" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Centres d'intérêt */}
       <div className="space-y-3">

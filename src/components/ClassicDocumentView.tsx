@@ -226,6 +226,37 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
               </div>
             )}
 
+            {/* Plateformes Web-SIG & Réalisations Digitales */}
+            {webSigProjects && webSigProjects.length > 0 && (
+              <div className="space-y-3 pt-4 border-t border-slate-800">
+                <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
+                  <Globe className="w-3.5 h-3.5" />
+                  Plateformes Web-SIG & Réalisations Digitales
+                </h3>
+                <div className="space-y-2.5">
+                  {webSigProjects.map((p) => (
+                    <div key={p.id} className="p-2.5 rounded-lg border border-slate-700/50 bg-slate-800/60">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-teal-600 text-white uppercase">{p.tag}</span>
+                        <a href={p.url} target="_blank" rel="noreferrer" className="text-[11px] text-teal-300 hover:underline flex items-center gap-1 font-semibold">
+                          {p.accessLabel} <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                      <h4 className="text-[11px] font-bold text-slate-100 mb-1">{p.title}</h4>
+                      <ul className="space-y-1 text-[10px] text-slate-300">
+                        {p.bullets.map((b, bi) => (
+                          <li key={bi} className="flex items-start gap-1 leading-relaxed">
+                            <CheckCircle2 className="w-3 h-3 text-teal-400 shrink-0 mt-0.5" />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Interests */}
             <div className="space-y-3 pt-4 border-t border-slate-800">
               <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
@@ -294,42 +325,6 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
                     {exp.bullets.map((b, bi) => (
                       <li key={bi} className="flex items-start gap-2 leading-relaxed">
                         <span className="text-teal-500 font-bold shrink-0">•</span>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Plateformes Web-SIG & Réalisations Digitales */}
-          <section className="space-y-4">
-            <div className="flex items-center gap-2 border-b-2 border-teal-600 pb-2">
-              <Globe className="w-5 h-5 text-teal-600 dark:text-teal-400" />
-              <h2 className="text-lg font-bold uppercase tracking-wide text-slate-900 dark:text-white">
-                Plateformes Web-SIG & Réalisations Digitales
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {webSigProjects.map((p) => (
-                <div key={p.id} className="p-4 rounded-xl border border-teal-500/30 bg-teal-50/20 dark:bg-slate-800/40 shadow-sm">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="px-2.5 py-0.5 rounded text-[10px] font-bold bg-teal-600 text-white uppercase tracking-wider">
-                      {p.tag}
-                    </span>
-                    <a href={p.url} target="_blank" rel="noreferrer" className="text-xs text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1 font-bold">
-                      {p.accessLabel} <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
-                  <h3 className="text-xs font-bold text-slate-900 dark:text-slate-100 mb-2">
-                    {p.title}
-                  </h3>
-                  <ul className="space-y-1 text-xs text-slate-600 dark:text-slate-300">
-                    {p.bullets.map((b, bi) => (
-                      <li key={bi} className="flex items-start gap-1.5 leading-relaxed">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-teal-500 shrink-0 mt-0.5" />
                         <span>{b}</span>
                       </li>
                     ))}

@@ -89,6 +89,7 @@ export default function App() {
               softSkills={cvData.softSkills}
               interests={cvData.interests}
               techSkills={cvData.techSkills}
+              webSigProjects={cvData.webSigProjects}
               onCopyText={handleCopyText}
             />
 
@@ -99,11 +100,6 @@ export default function App() {
 
               <ExperienceSection
                 experiences={cvData.experiences}
-                searchQuery={searchQuery}
-              />
-
-              <WebSigProjectsSection
-                webSigProjects={cvData.webSigProjects}
                 searchQuery={searchQuery}
               />
 
