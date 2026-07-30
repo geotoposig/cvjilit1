@@ -136,7 +136,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
                 }`}
               >
                 <FileText className="w-3.5 h-3.5" />
-                Document A4 (Imprimable)
+                Document A3 (Pleine Page)
               </button>
             </div>
 

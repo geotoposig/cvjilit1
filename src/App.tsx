@@ -126,8 +126,8 @@ export default function App() {
       {/* Print Specific CSS override */}
       <style>{`
         @page {
-          size: A4 portrait;
-          margin: 8mm;
+          size: A3 portrait;
+          margin: 6mm;
         }
         @media print {
           .no-print {
@@ -151,10 +151,6 @@ export default function App() {
           }
           .shadow-2xl, .shadow-xl, .shadow-md, .shadow-sm {
             box-shadow: none !important;
-          }
-          section, article, .break-inside-avoid, li, div.relative {
-            break-inside: avoid !important;
-            page-break-inside: avoid !important;
           }
         }
       `}</style>
