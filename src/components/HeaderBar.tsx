@@ -1,16 +1,13 @@
 import React from 'react';
 import { 
-  Printer, 
   Moon, 
   Sun, 
   Search, 
   LayoutGrid, 
   FileText, 
   Download, 
-  Share2, 
   Check, 
-  Copy,
-  ExternalLink
+  Copy
 } from 'lucide-react';
 
 interface HeaderBarProps {
@@ -43,6 +40,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
     { id: 'experience', label: 'Expériences' },
     { id: 'education', label: 'Formation' },
     { id: 'workshops', label: 'Formations & Ateliers' },
+    { id: 'web-sig', label: 'Projets Web-SIG' },
   ];
 
   return (
@@ -173,17 +171,6 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
               <Download className="w-3.5 h-3.5" />
               <span>Télécharger CV (PDF)</span>
             </a>
-
-            {/* Print / Export PDF */}
-            <button
-              onClick={() => window.print()}
-              id="btn-print-desktop"
-              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors"
-              title="Imprimer"
-            >
-              <Printer className="w-3.5 h-3.5" />
-              <span>Imprimer</span>
-            </button>
 
             {/* Theme Toggle */}
             <button

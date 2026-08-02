@@ -113,6 +113,11 @@ export default function App() {
                 searchQuery={searchQuery}
               />
 
+              <WebSigProjectsSection
+                webSigProjects={cvData.webSigProjects}
+                searchQuery={searchQuery}
+              />
+
             </div>
 
           </div>
