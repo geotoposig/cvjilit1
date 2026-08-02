@@ -76,14 +76,16 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
               >
                 {isDarkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5" />}
               </button>
-              <button
-                onClick={() => window.print()}
-                id="btn-print-mobile"
-                className="p-2 rounded-lg bg-teal-600 text-white hover:bg-teal-700 transition-colors"
-                title="Imprimer / Télécharger PDF"
+              <a
+                href="https://drive.google.com/file/d/1D2TdoXQuiuoYXdA34YkFxrNogLT-TfVk/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                id="btn-download-mobile"
+                className="p-2 rounded-lg bg-teal-600 text-white hover:bg-teal-700 transition-colors flex items-center justify-center"
+                title="Télécharger le CV PDF"
               >
-                <Printer className="w-5 h-5" />
-              </button>
+                <Download className="w-5 h-5" />
+              </a>
             </div>
           </div>
 
@@ -160,14 +162,27 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
               )}
             </button>
 
+            {/* Download PDF button linking to Google Drive */}
+            <a
+              href="https://drive.google.com/file/d/1D2TdoXQuiuoYXdA34YkFxrNogLT-TfVk/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="btn-download-desktop"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-500 rounded-lg shadow-sm transition-all"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Télécharger CV (PDF)</span>
+            </a>
+
             {/* Print / Export PDF */}
             <button
               onClick={() => window.print()}
               id="btn-print-desktop"
-              className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 dark:bg-teal-600 dark:hover:bg-teal-500 rounded-lg shadow-sm transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors"
+              title="Imprimer"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Imprimer / PDF</span>
+              <span>Imprimer</span>
             </button>
 
             {/* Theme Toggle */}

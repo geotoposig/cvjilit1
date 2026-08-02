@@ -17,7 +17,8 @@ import {
   BookOpen, 
   ExternalLink,
   CheckCircle2,
-  Printer
+  Printer,
+  Download
 } from 'lucide-react';
 
 interface ClassicDocumentViewProps {
@@ -45,21 +46,32 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
 
   return (
     <div className="space-y-4 my-6">
-      {/* Print Control Bar */}
-      <div className="no-print max-w-[1250px] mx-auto flex items-center justify-between bg-slate-800 text-slate-200 px-6 py-3 rounded-xl border border-slate-700 shadow-md">
+      {/* Print / Download Control Bar */}
+      <div className="no-print max-w-[1250px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse" />
-          <span className="text-xs font-semibold uppercase tracking-wider text-teal-300">
+          <span className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse" />
+          <span className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300">
             Affiche A3 Professionnelle (Prête à imprimer / Exporter en PDF)
           </span>
         </div>
-        <button
-          onClick={handlePrint}
-          className="flex items-center gap-2 px-4 py-2 bg-teal-600 hover:bg-teal-500 text-white rounded-lg text-xs font-bold transition shadow-md active:scale-95"
-        >
-          <Printer className="w-4 h-4" />
-          Imprimer / Télécharger en PDF (A3)
-        </button>
+        <div className="flex items-center gap-2">
+          <a
+            href="https://drive.google.com/file/d/1D2TdoXQuiuoYXdA34YkFxrNogLT-TfVk/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-bold transition shadow-sm active:scale-95"
+          >
+            <Download className="w-4 h-4" />
+            Télécharger CV (PDF)
+          </a>
+          <button
+            onClick={handlePrint}
+            className="flex items-center gap-2 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-lg text-xs font-bold transition active:scale-95"
+          >
+            <Printer className="w-4 h-4" />
+            Imprimer
+          </button>
+        </div>
       </div>
 
       {/* Main A3 Document Wrapper with Sidebar */}
@@ -69,84 +81,84 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
       >
         
         {/* LEFT SIDEBAR (4 Columns out of 12) */}
-        <aside className="md:col-span-4 bg-slate-900 text-slate-100 p-6 md:p-8 flex flex-col justify-between border-r border-slate-800 space-y-8">
+        <aside className="md:col-span-4 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 p-6 md:p-8 flex flex-col justify-between border-r border-slate-200 dark:border-slate-800 space-y-8">
           
           {/* Header Profile Info */}
           <div className="space-y-6">
             <div className="flex flex-col items-center text-center">
-              <div className="w-36 h-36 rounded-full border-4 border-teal-400 p-1 bg-slate-800 shadow-xl overflow-hidden mb-4 relative group">
+              <div className="w-36 h-36 rounded-full border-4 border-teal-600 dark:border-teal-400 p-1 bg-white dark:bg-slate-800 shadow-md overflow-hidden mb-4 relative group">
                 <img
                   src={personalInfo.photoUrl}
                   alt={personalInfo.name}
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <h1 className="text-xl md:text-2xl font-black text-white tracking-wide uppercase">
+              <h1 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white tracking-wide uppercase">
                 {personalInfo.name}
               </h1>
-              <p className="text-xs md:text-sm text-teal-400 font-semibold mt-1.5 leading-snug">
+              <p className="text-xs md:text-sm text-teal-700 dark:text-teal-400 font-bold mt-1.5 leading-snug">
                 {personalInfo.title}
               </p>
-              <div className="mt-3 px-3 py-1 rounded-full bg-teal-950/80 text-teal-300 text-[10px] font-bold border border-teal-500/40 uppercase tracking-widest">
+              <div className="mt-3 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/80 text-teal-800 dark:text-teal-300 text-[10px] font-bold border border-teal-200 dark:border-teal-500/40 uppercase tracking-widest shadow-sm">
                 Curriculum Vitae - Format A3
               </div>
             </div>
 
             {/* Contact Details */}
-            <div className="space-y-3 pt-4 border-t border-slate-800 text-xs">
-              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-400 pb-1 border-b border-teal-500/20">
+            <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs">
+              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 pb-1 border-b border-teal-500/20">
                 Coordonnées & Contact
               </h3>
               
-              <div className="space-y-2 text-slate-300">
+              <div className="space-y-2 text-slate-700 dark:text-slate-300">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-slate-700">
-                    <Phone className="w-3.5 h-3.5 text-teal-400" />
+                  <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <Phone className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                   </div>
-                  <span className="font-medium">{personalInfo.phones.join(' / ')}</span>
+                  <span className="font-semibold">{personalInfo.phones.join(' / ')}</span>
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-slate-700">
-                    <Mail className="w-3.5 h-3.5 text-teal-400" />
+                  <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <Mail className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                   </div>
-                  <span className="break-all font-medium">{personalInfo.email}</span>
+                  <span className="break-all font-semibold">{personalInfo.email}</span>
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-slate-700">
-                    <MapPin className="w-3.5 h-3.5 text-teal-400" />
+                  <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <MapPin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                   </div>
-                  <span>{personalInfo.address}</span>
+                  <span className="font-medium">{personalInfo.address}</span>
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-slate-700">
-                    <Linkedin className="w-3.5 h-3.5 text-teal-400" />
+                  <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <Linkedin className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                   </div>
-                  <a href={personalInfo.linkedin.url} target="_blank" rel="noreferrer" className="text-teal-300 hover:underline flex items-center gap-1 font-semibold">
+                  <a href={personalInfo.linkedin.url} target="_blank" rel="noreferrer" className="text-teal-700 dark:text-teal-300 hover:underline flex items-center gap-1 font-bold">
                     {personalInfo.linkedin.label} <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-slate-700">
-                    <CreditCard className="w-3.5 h-3.5 text-teal-400" />
+                  <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <CreditCard className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                   </div>
-                  <span>Permis : <strong className="text-white">{personalInfo.license}</strong></span>
+                  <span className="font-medium">Permis : <strong className="text-slate-900 dark:text-white font-bold">{personalInfo.license}</strong></span>
                 </div>
               </div>
             </div>
 
             {/* Core Skills */}
-            <div className="space-y-3 pt-4 border-t border-slate-800">
-              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
+            <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
                 <Award className="w-3.5 h-3.5" />
                 Compétences Clés
               </h3>
               <div className="flex flex-wrap gap-1.5">
                 {coreSkills.map((sk, i) => (
-                  <span key={i} className="text-[11px] bg-slate-800 text-teal-200 px-2.5 py-1 rounded-md border border-slate-700 font-medium">
+                  <span key={i} className="text-[11px] bg-white dark:bg-slate-800 text-teal-800 dark:text-teal-200 px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-700 font-semibold shadow-sm">
                     {sk}
                   </span>
                 ))}
@@ -154,16 +166,16 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
             </div>
 
             {/* Languages */}
-            <div className="space-y-3 pt-4 border-t border-slate-800">
-              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
+            <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
                 <Globe className="w-3.5 h-3.5" />
                 Langues
               </h3>
               <div className="space-y-2">
                 {languages.map((l, i) => (
-                  <div key={i} className="flex justify-between items-center text-xs text-slate-200 bg-slate-800/60 p-2 rounded-md border border-slate-700/50">
-                    <span className="font-semibold">{l.name}</span>
-                    <span className="text-teal-300 font-bold bg-slate-900 px-2 py-0.5 rounded text-[10px] border border-teal-500/30">
+                  <div key={i} className="flex justify-between items-center text-xs text-slate-800 dark:text-slate-200 bg-white dark:bg-slate-800/60 p-2 rounded-md border border-slate-200 dark:border-slate-700/50 shadow-sm">
+                    <span className="font-bold">{l.name}</span>
+                    <span className="text-teal-800 dark:text-teal-300 font-bold bg-teal-50 dark:bg-slate-900 px-2 py-0.5 rounded text-[10px] border border-teal-200 dark:border-teal-500/30">
                       {l.level}
                     </span>
                   </div>
@@ -172,15 +184,15 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
             </div>
 
             {/* Soft Skills */}
-            <div className="space-y-3 pt-4 border-t border-slate-800">
-              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
+            <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
                 <Sparkles className="w-3.5 h-3.5" />
                 Qualités & Soft Skills
               </h3>
-              <ul className="text-xs text-slate-300 space-y-1.5 pl-1">
+              <ul className="text-xs text-slate-700 dark:text-slate-300 space-y-1.5 pl-1 font-medium">
                 {softSkills.map((ss, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0" />
                     <span>{ss}</span>
                   </li>
                 ))}
@@ -189,27 +201,27 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
 
             {/* Compétences et Connaissances Informatiques */}
             {techSkills && techSkills.length > 0 && (
-              <div className="space-y-3 pt-4 border-t border-slate-800">
-                <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
+              <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
                   <Cpu className="w-3.5 h-3.5" />
                   Compétences et Connaissances Informatiques
                 </h3>
-                <div className="space-y-2.5 text-xs text-slate-300">
+                <div className="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
                   {techSkills.map((sec, idx) => (
-                    <div key={idx} className="bg-slate-800/60 p-2.5 rounded-lg border border-slate-700/50">
-                      <strong className="text-teal-300 text-[11px] block font-semibold mb-1">
+                    <div key={idx} className="bg-white dark:bg-slate-800/60 p-2.5 rounded-lg border border-slate-200 dark:border-slate-700/50 shadow-sm">
+                      <strong className="text-teal-700 dark:text-teal-300 text-[11px] block font-bold mb-1">
                         {sec.numberTitle}
                       </strong>
-                      <ul className="space-y-1 text-[11px] text-slate-300 pl-1">
+                      <ul className="space-y-1 text-[11px] text-slate-700 dark:text-slate-300 pl-1">
                         {sec.bullets.map((b, bIdx) => {
                           const split = b.split(/:(.+)/);
                           return (
                             <li key={bIdx} className="flex items-start gap-1.5 leading-relaxed">
-                              <span className="w-1 h-1 rounded-full bg-teal-400 shrink-0 mt-1.5" />
+                              <span className="w-1 h-1 rounded-full bg-teal-600 dark:bg-teal-400 shrink-0 mt-1.5" />
                               <div>
                                 {split.length > 1 ? (
                                   <>
-                                    <strong className="text-slate-200 font-medium">{split[0]}:</strong>
+                                    <strong className="text-slate-900 dark:text-slate-200 font-semibold">{split[0]}:</strong>
                                     <span>{split[1]}</span>
                                   </>
                                 ) : (
@@ -228,25 +240,25 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
 
             {/* Plateformes Web-SIG & Réalisations Digitales */}
             {webSigProjects && webSigProjects.length > 0 && (
-              <div className="space-y-3 pt-4 border-t border-slate-800">
-                <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
+              <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
                   <Globe className="w-3.5 h-3.5" />
                   Plateformes Web-SIG & Réalisations Digitales
                 </h3>
                 <div className="space-y-2.5">
                   {webSigProjects.map((p) => (
-                    <div key={p.id} className="p-2.5 rounded-lg border border-slate-700/50 bg-slate-800/60">
+                    <div key={p.id} className="p-2.5 rounded-lg border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-800/60 shadow-sm">
                       <div className="flex justify-between items-center mb-1">
                         <span className="px-2 py-0.5 rounded text-[9px] font-bold bg-teal-600 text-white uppercase">{p.tag}</span>
-                        <a href={p.url} target="_blank" rel="noreferrer" className="text-[11px] text-teal-300 hover:underline flex items-center gap-1 font-semibold">
+                        <a href={p.url} target="_blank" rel="noreferrer" className="text-[11px] text-teal-700 dark:text-teal-300 hover:underline flex items-center gap-1 font-bold">
                           {p.accessLabel} <ExternalLink className="w-3 h-3" />
                         </a>
                       </div>
-                      <h4 className="text-[11px] font-bold text-slate-100 mb-1">{p.title}</h4>
-                      <ul className="space-y-1 text-[10px] text-slate-300">
+                      <h4 className="text-[11px] font-bold text-slate-900 dark:text-slate-100 mb-1">{p.title}</h4>
+                      <ul className="space-y-1 text-[10px] text-slate-700 dark:text-slate-300">
                         {p.bullets.map((b, bi) => (
                           <li key={bi} className="flex items-start gap-1 leading-relaxed">
-                            <CheckCircle2 className="w-3 h-3 text-teal-400 shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-3 h-3 text-teal-600 dark:text-teal-400 shrink-0 mt-0.5" />
                             <span>{b}</span>
                           </li>
                         ))}
@@ -258,14 +270,14 @@ export const ClassicDocumentView: React.FC<ClassicDocumentViewProps> = ({ data }
             )}
 
             {/* Interests */}
-            <div className="space-y-3 pt-4 border-t border-slate-800">
-              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
+            <div className="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <h3 className="text-[11px] font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 flex items-center gap-1.5 pb-1 border-b border-teal-500/20">
                 <Heart className="w-3.5 h-3.5" />
                 Centres d'intérêt
               </h3>
-              <div className="flex flex-wrap gap-1.5 text-xs text-slate-300 capitalize">
+              <div className="flex flex-wrap gap-1.5 text-xs text-slate-700 dark:text-slate-300 capitalize">
                 {interests.map((it, i) => (
-                  <span key={i} className="bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700 text-[11px]">
+                  <span key={i} className="bg-white dark:bg-slate-800 px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-700 text-[11px] font-medium shadow-sm">
                     {it}
                   </span>
                 ))}
