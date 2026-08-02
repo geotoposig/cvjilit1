@@ -59,7 +59,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
                   Elmostafa JILIT
                 </h1>
                 <p className="text-xs text-teal-600 dark:teal-400 font-medium">
-                  Expert SIG & Cartographe
+                  géographe & Géomaticien
                 </p>
               </div>
             </div>
